@@ -311,10 +311,10 @@ static NSUInteger PSTVisibleAlertsCount = 0;
                 popoverPresentation.barButtonItem = sender;
             } else if ([sender isKindOfClass:UIView.class]) {
                 popoverPresentation.sourceView = sender;
-                popoverPresentation.sourceRect = [sender bounds];
+                popoverPresentation.sourceRect = [(UIView *)sender bounds];
             } else if ([sender isKindOfClass:NSValue.class]) {
                 popoverPresentation.sourceView = controller.view;
-                popoverPresentation.sourceRect = [sender CGRectValue];
+                popoverPresentation.sourceRect = [(NSValue *)sender CGRectValue];
             } else {
                 popoverPresentation.sourceView = controller.view;
                 popoverPresentation.sourceRect = controller.view.bounds;
@@ -403,9 +403,9 @@ static NSUInteger PSTVisibleAlertsCount = 0;
     } else if ([view isKindOfClass:UITabBar.class]) {
         [actionSheet showFromTabBar:(UITabBar *)view];
     } else if (isIPad && [sender isKindOfClass:UIView.class]) {
-        [actionSheet showFromRect:[sender bounds] inView:sender animated:animated];
+        [actionSheet showFromRect:[(UIView *)sender bounds] inView:sender animated:animated];
     } else if ([sender isKindOfClass:NSValue.class]) {
-        [actionSheet showFromRect:[sender CGRectValue] inView:view animated:animated];
+        [actionSheet showFromRect:[(NSValue *)sender CGRectValue] inView:view animated:animated];
     } else {
         [actionSheet showInView:view];
     }
